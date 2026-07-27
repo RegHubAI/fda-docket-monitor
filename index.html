@@ -80,6 +80,10 @@
   ul.tight{padding-left:20px;font-size:13.5px}
   ul.tight li{margin-bottom:8px}
   .small{font-size:12.5px;color:var(--muted)}
+  .btn{display:inline-block;background:var(--blue);color:#fff!important;text-decoration:none;font-size:13px;font-weight:650;border-radius:8px;padding:9px 18px}
+  .btn:hover{background:#0d4f88;text-decoration:none}
+  .btn.outline{background:#fff;color:var(--blue)!important;border:1.5px solid var(--blue)}
+  .btn.outline:hover{background:var(--blue-soft)}
 
   footer{margin-top:44px;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--muted)}
   footer a{color:var(--blue);text-decoration:none}
@@ -159,13 +163,14 @@
         <li><b>Adjacent signal:</b> in Jul 15 House testimony, investor coalition <b>Incubate</b> asked Congress to press FDA to clarify that community health centers and their networks can qualify as QRIs or partner sites — a preview of eligibility-scope lobbying likely to appear in the docket.</li>
       </ul>
       <p class="small" style="margin-top:10px">* To resolve the two new filers: view the docket comment list on regulations.gov sorted newest-first, or query the API with <code>sort=-postedDate&amp;page[size]=2</code>. Likely comment IDs ~FDA-2026-N-4699-0061/-0062.</p>
+      <p style="margin-top:14px"><a class="btn" href="https://www.regulations.gov/docket/FDA-2026-N-4699/comments" target="_blank" rel="noopener">View all 59 comments on regulations.gov &rarr;</a></p>
     </div>
   </section>
 
   <!-- Comment activity + new submissions -->
   <section>
     <h2><span class="bar"></span>Comment activity</h2>
-    <p class="lede">Posted-comment totals across weekly checks, with this week's intake status.</p>
+    <p class="lede">Posted-comment totals across weekly checks, with this week's intake status. Comment-level identities are pending until regulations.gov is reachable from this monitor.</p>
     <div class="grid-2">
       <div class="card">
         <div class="bars">
@@ -190,6 +195,30 @@
           <b>Data caveat:</b> regulations.gov (API, website, and file downloads) was unreachable during this check — all network routes returned 403/connection resets. Counts above come from the Federal Register's official mirror of regulations.gov docket metadata. New-filer identities are unverified, not confirmed absent.
         </div>
       </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <table>
+        <tr><th>Theme</th><th>What we know this week</th></tr>
+        <tr>
+          <td style="width:38%"><b>Overall intake</b></td>
+          <td>59 posted submissions as of the Jul 27 metadata sync (+2 this week, posted ~Jul 24–27). Volume is still light for a high-profile FDA RFI — consistent with stakeholders holding fire until closer to the Aug 24 deadline.</td>
+        </tr>
+        <tr>
+          <td><b>Who has filed</b></td>
+          <td><span class="badge amber">Unverified</span>&nbsp; Comment-level detail (filer names, organizations, text) lives only on regulations.gov and was unreachable during this check. The +2 newcomers are likely at the tail of the ID sequence (~FDA-2026-N-4699-0061/-0062).</td>
+        </tr>
+        <tr>
+          <td><b>Major trade groups (PhRMA, BIO, large pharma)</b></td>
+          <td><span class="badge gray">None confirmed</span>&nbsp; No association or large-sponsor filing found in any indexed source. Historical pattern: heavyweight comments land in the final 1–2 weeks before deadline.</td>
+        </tr>
+        <tr>
+          <td><b>Early substantive signal</b></td>
+          <td>Off-docket, investor coalition <b>Incubate</b> is pressing (via Jul 15 House testimony) for community health centers and their networks to qualify as QRIs or partner sites — expect eligibility-scope comments to be a recurring docket theme.</td>
+        </tr>
+      </table>
+      <p style="margin-top:14px"><a class="btn" href="https://www.regulations.gov/docket/FDA-2026-N-4699/comments" target="_blank" rel="noopener">Browse the full comment record on regulations.gov &rarr;</a></p>
+      <p class="small" style="margin-top:10px">This summary table updates with each weekly check; a filer-by-filer breakdown lands here once regulations.gov comment data is reachable again.</p>
     </div>
   </section>
 

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDA-2026-N-4699 Weekly Docket Monitor — Expedited IND Pilot Program RFI</title>
+<style>
+  :root{
+    --navy:#0b2545; --blue:#1363a8; --blue-soft:#e8f1f8; --teal:#0e7c7b;
+    --amber:#b45309; --amber-soft:#fdf3e3; --red:#b91c1c; --red-soft:#fdecec;
+    --green:#166534; --green-soft:#eaf6ee;
+    --ink:#1f2937; --muted:#64748b; --line:#e2e8f0; --bg:#f5f7fa; --card:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 64px}
+
+  /* Header */
+  header{background:linear-gradient(135deg,var(--navy) 0%,#123a68 60%,var(--blue) 100%);color:#fff;padding:36px 0 30px}
+  header .wrap{padding-bottom:0}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9ec3e8;font-weight:600}
+  h1{font-size:26px;font-weight:700;margin:6px 0 4px;line-height:1.25}
+  .subtitle{color:#c9dcef;font-size:14.5px;max-width:760px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 14px;font-size:12.5px;color:#eaf2fb}
+  .chip b{color:#fff}
+
+  /* KPI grid */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-24px;position:relative;z-index:2}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 14px;box-shadow:0 6px 18px rgba(11,37,69,.08)}
+  .kpi .label{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+  .kpi .value{font-size:34px;font-weight:750;margin:4px 0 2px;color:var(--navy)}
+  .kpi .delta{font-size:12.5px;font-weight:600}
+  .delta.up{color:var(--green)} .delta.warn{color:var(--amber)} .delta.neutral{color:var(--muted)}
+  .kpi .foot{font-size:12px;color:var(--muted);margin-top:6px;border-top:1px dashed var(--line);padding-top:6px}
+
+  section{margin-top:34px}
+  h2{font-size:18px;color:var(--navy);display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  h2 .bar{width:5px;height:20px;border-radius:3px;background:var(--blue)}
+  .lede{color:var(--muted);font-size:13.5px;margin-bottom:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 2px 8px rgba(11,37,69,.04)}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+  /* Comment bars */
+  .bars{display:flex;align-items:flex-end;gap:40px;height:170px;padding:8px 6px 0}
+  .bar-col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;flex:1;max-width:150px}
+  .bar{width:100%;border-radius:8px 8px 0 0;background:linear-gradient(180deg,#4f8fc7,var(--blue));position:relative}
+  .bar.new{background:linear-gradient(180deg,#1fae9c,var(--teal))}
+  .bar .num{position:absolute;top:-26px;left:0;right:0;text-align:center;font-weight:700;font-size:17px;color:var(--navy)}
+  .bar-cap{margin-top:8px;font-size:12.5px;color:var(--muted);text-align:center}
+  .callout{background:var(--amber-soft);border:1px solid #f0d9ae;border-left:4px solid var(--amber);border-radius:10px;padding:14px 16px;font-size:13.5px}
+  .callout b{color:var(--amber)}
+  .callout.blue{background:var(--blue-soft);border-color:#c4dbef;border-left-color:var(--blue)}
+  .callout.blue b{color:var(--blue)}
+  .callout.red{background:var(--red-soft);border-color:#f3c5c5;border-left-color:var(--red)}
+  .callout.red b{color:var(--red)}
+
+  /* Timeline */
+  .timeline{position:relative;padding-left:26px}
+  .timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl-item{position:relative;padding:0 0 20px 10px}
+  .tl-item:last-child{padding-bottom:2px}
+  .tl-dot{position:absolute;left:-24px;top:5px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
+  .tl-item.key .tl-dot{border-color:var(--amber)}
+  .tl-date{font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--blue);text-transform:uppercase}
+  .tl-item.key .tl-date{color:var(--amber)}
+  .tl-title{font-weight:650;font-size:14.5px;margin:1px 0 2px}
+  .tl-desc{font-size:13px;color:var(--muted)}
+  .tl-desc a{color:var(--blue)}
+
+  /* Tables & lists */
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:2px solid var(--line);padding:8px 10px}
+  td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .badge{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 11px}
+  .badge.green{background:var(--green-soft);color:var(--green)}
+  .badge.amber{background:var(--amber-soft);color:var(--amber)}
+  .badge.gray{background:#eef2f7;color:var(--muted)}
+  ul.tight{padding-left:20px;font-size:13.5px}
+  ul.tight li{margin-bottom:8px}
+  .small{font-size:12.5px;color:var(--muted)}
+
+  footer{margin-top:44px;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--muted)}
+  footer a{color:var(--blue);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  @media(max-width:860px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .grid-2{grid-template-columns:1fr}
+    h1{font-size:21px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Weekly Regulatory Docket Monitor</div>
+    <h1>FDA-2026-N-4699 · Expedited IND Pilot Program — Request for Information</h1>
+    <div class="subtitle">Weekly check of public comments and FDA milestones for the Operation TrialBlazer expedited-IND pilot RFI. Comment period closes <b>August 24, 2026</b>.</div>
+    <div class="meta-row">
+      <span class="chip">Check date: <b>Jul 28, 2026</b></span>
+      <span class="chip">Baseline: <b>57 comments (Jul 27)</b></span>
+      <span class="chip">Docket contact: <b>Benjamin Cook, ExpeditedINDPilot@fda.hhs.gov</b></span>
+      <span class="chip">Status: <b>Open for comment</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- KPIs -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="label">Total comments posted</div>
+      <div class="value">59</div>
+      <div class="delta up">▲ +2 since last check</div>
+      <div class="foot">Synced from regulations.gov metadata Jul 27, 12:55 UTC</div>
+    </div>
+    <div class="kpi">
+      <div class="label">New this week</div>
+      <div class="value">2</div>
+      <div class="delta neutral">Filers not yet identified*</div>
+      <div class="foot">Posted ~Jul 24–27 window (tail of docket sequence)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Days to comment deadline</div>
+      <div class="value" id="countdown">—</div>
+      <div class="delta warn">Deadline Aug 24, 2026</div>
+      <div class="foot">Extended from Jul 22 on Jul 21 (FR doc 2026-14672)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Major trade-group filings</div>
+      <div class="value">0</div>
+      <div class="delta neutral">None confirmed to date</div>
+      <div class="foot">PhRMA / BIO / large pharma — expected near deadline</div>
+    </div>
+  </div>
+
+  <!-- Executive summary -->
+  <section>
+    <h2><span class="bar"></span>Executive summary</h2>
+    <div class="card">
+      <ul class="tight">
+        <li><b>Comment volume ticked up modestly:</b> 57 → <b>59 posted comments</b> (+2) between the Jul 27 baseline and this check, per Federal Register docket metadata synced from regulations.gov on Jul 27 at 12:55 UTC. All 59 comments attach to the original RFI notice (FDA-2026-N-4699-0001); the correction and extension notices carry zero.</li>
+        <li><b>Two new filers could not be identified this week:</b> comment-level detail (submitter, organization, text) is only available on regulations.gov, which was unreachable during this check. No PhRMA, BIO, or large-pharma submission could be confirmed in the docket or in any indexed source.</li>
+        <li><b>No new FDA milestones since the Jul 21 comment-period extension.</b> FDA remains in the input-gathering stage — no pilot launch date, no QRI eligibility/selection criteria, and no further extensions published as of this check.</li>
+        <li><b>Adjacent signal:</b> in Jul 15 House testimony, investor coalition <b>Incubate</b> asked Congress to press FDA to clarify that community health centers and their networks can qualify as QRIs or partner sites — a preview of eligibility-scope lobbying likely to appear in the docket.</li>
+      </ul>
+      <p class="small" style="margin-top:10px">* To resolve the two new filers: view the docket comment list on regulations.gov sorted newest-first, or query the API with <code>sort=-postedDate&amp;page[size]=2</code>. Likely comment IDs ~FDA-2026-N-4699-0061/-0062.</p>
+    </div>
+  </section>
+
+  <!-- Comment activity + new submissions -->
+  <section>
+    <h2><span class="bar"></span>Comment activity</h2>
+    <p class="lede">Posted-comment totals across weekly checks, with this week's intake status.</p>
+    <div class="grid-2">
+      <div class="card">
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar" style="height:88%"><span class="num">57</span></div>
+            <div class="bar-cap">Last check<br>Jul 27 baseline</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar new" style="height:91%"><span class="num">59</span></div>
+            <div class="bar-cap">This check<br>Jul 28 (+2)</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <table>
+          <tr><th>Document</th><th>FR doc no.</th><th>Comments</th></tr>
+          <tr><td>RFI — Expedited IND Pilot Program (Jun 24)</td><td>2026-12621</td><td><span class="badge green">59</span></td></tr>
+          <tr><td>Correction notice (Jul 6)</td><td>2026-13592</td><td><span class="badge gray">0</span></td></tr>
+          <tr><td>Comment-period extension (Jul 21)</td><td>2026-14672</td><td><span class="badge gray">0</span></td></tr>
+        </table>
+        <div class="callout" style="margin-top:14px">
+          <b>Data caveat:</b> regulations.gov (API, website, and file downloads) was unreachable during this check — all network routes returned 403/connection resets. Counts above come from the Federal Register's official mirror of regulations.gov docket metadata. New-filer identities are unverified, not confirmed absent.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section>
+    <h2><span class="bar"></span>FDA milestone timeline</h2>
+    <p class="lede">All Federal Register activity in this docket since launch. The Jul 21 extension is the only comment-period change to date.</p>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-date">Jun 22, 2026</div>
+          <div class="tl-title">Operation TrialBlazer announced</div>
+          <div class="tl-desc">HHS unveils the initiative; FDA bundles the pilot RFI with Phase 1 CMC clarifications, an IND Navigator page, and a Phase 1 Contact Center.</div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-date">Jun 24, 2026</div>
+          <div class="tl-title">RFI published — docket opens (91 FR 37996)</div>
+          <div class="tl-desc">Original comment deadline Jul 22. <a href="https://www.federalregister.gov/documents/2026/06/24/2026-12621/expedited-investigational-new-drug-pilot-program-request-for-information" target="_blank" rel="noopener">FR doc 2026-12621</a></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-date">Jul 6, 2026</div>
+          <div class="tl-title">Correction notice</div>
+          <div class="tl-desc"><a href="https://www.federalregister.gov/documents/2026/07/06/2026-13592/expedited-investigational-new-drug-pilot-program-request-for-information-correction" target="_blank" rel="noopener">FR doc 2026-13592</a></div>
+        </div>
+        <div class="tl-item key">
+          <span class="tl-dot"></span>
+          <div class="tl-date">Jul 21, 2026 · Key event</div>
+          <div class="tl-title">Comment period extended to Aug 24, 2026</div>
+          <div class="tl-desc">Signed by Deputy Commissioner Grace R. Graham. <a href="https://www.federalregister.gov/documents/2026/07/21/2026-14672/expedited-investigational-new-drug-pilot-program-request-for-information-extension-of-the-comment" target="_blank" rel="noopener">FR doc 2026-14672</a> — no further extensions since.</div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-date">As of Jul 28, 2026</div>
+          <div class="tl-title">Awaited — not yet published</div>
+          <div class="tl-desc">Pilot launch date · QRI eligibility/selection criteria · candidate-QRI list. FDA is still gathering input; no new FR documents after Jul 21.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trade group watch + next check -->
+  <section>
+    <h2><span class="bar"></span>Watch list</h2>
+    <div class="grid-2">
+      <div class="card">
+        <table>
+          <tr><th>Organization</th><th>Status</th></tr>
+          <tr><td>PhRMA</td><td><span class="badge gray">Not confirmed in docket</span></td></tr>
+          <tr><td>BIO (Biotechnology Innovation Organization)</td><td><span class="badge gray">Not confirmed in docket</span></td></tr>
+          <tr><td>Large pharma sponsors</td><td><span class="badge gray">Not confirmed in docket</span></td></tr>
+          <tr><td>Incubate (investor coalition)</td><td><span class="badge amber">Active off-docket — Jul 15 House testimony on QRI eligibility</span></td></tr>
+        </table>
+        <p class="small" style="margin-top:10px">Major associations typically file close to the deadline — expect a surge in the Aug 17–24 window.</p>
+      </div>
+      <div class="card">
+        <div class="callout blue" style="margin-bottom:12px">
+          <b>Next weekly check (week of Aug 3):</b> retry the regulations.gov API to identify the two newest filers and their positions; re-pull total count.
+        </div>
+        <ul class="tight">
+          <li>Watch for QRI eligibility criteria or pilot-launch announcements on FDA.gov and the Federal Register.</li>
+          <li>Monitor for a pre-deadline filing surge from PhRMA, BIO, and large sponsors toward Aug 24.</li>
+          <li>Sibling docket <b>FDA-2026-N-4390</b> (AI-Enabled Optimization of Early-Phase Clinical Trials) closed Jun 29 — its comment record may preview industry themes for this RFI.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Sources & method:</b> Comment counts and docket metadata via the Federal Register API (<a href="https://www.federalregister.gov/documents/2026/06/24/2026-12621/expedited-investigational-new-drug-pilot-program-request-for-information" target="_blank" rel="noopener">FR doc 2026-12621</a>, regulations.gov sync Jul 27, 2026 12:55 UTC). regulations.gov was unreachable during this check; new-filer identities pending verification. Docket: <a href="https://www.regulations.gov/docket/FDA-2026-N-4699" target="_blank" rel="noopener">regulations.gov/docket/FDA-2026-N-4699</a> · API: <code>api.regulations.gov/v4/comments?filter[docketId]=FDA-2026-N-4699</code></p>
+    <p style="margin-top:6px">Prepared Jul 28, 2026 · Weekly docket monitor · For internal team distribution.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Countdown to Aug 24, 2026 deadline (end of day ET)
+  var deadline = new Date('2026-08-24T23:59:59-04:00');
+  var now = new Date();
+  var days = Math.max(0, Math.ceil((deadline - now) / 86400000));
+  document.getElementById('countdown').textContent = days;
+</script>
+
+</body>
+</html>
